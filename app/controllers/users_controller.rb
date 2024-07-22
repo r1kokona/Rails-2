@@ -30,6 +30,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destory
+    @user = User.find([:id])
+    @user.destory
+
+    redirect_to root_path, status: :see_other
+  end
+
   private
   def user_params
     params.require(:user).permit(:name)
