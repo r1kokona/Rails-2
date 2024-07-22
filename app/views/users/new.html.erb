@@ -3,5 +3,9 @@
 <%= form_with model: @user do |form| %>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
+    <% @user.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+
     <%= form.submit %>
 <% end %>
