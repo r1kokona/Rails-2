@@ -22,17 +22,16 @@ class UsersTest < ApplicationSystemTestCase
     # リダイレクトする？
   end
   test "ユーザー情報アップデート" do
-    visit users_url
+    visit user_url(@user)
     click_on "Edit", match: :first
 
     fill_in "Name", with: "Updated User"
     click_on "Update User"
   end
   test "ユーザー削除" do
-    visit users_url(@user)
+    visit user_url(@user)
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
   end
-
 end
