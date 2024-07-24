@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    @user = User.new(name: "aaa")
+    @user = User.new(user_params)
     if @user.save
       redirect_to @user
     else
