@@ -9,26 +9,26 @@ class UsersTest < ApplicationSystemTestCase
     @user = users(:one)
   end
   test "visiting the index" do
-    visit users_url
+    visit users_path
   
     assert_selector "h1", text: "Users"
   end
   test "ユーザー作成" do
-    visit users_url
+    visit users_path
     click_on "New User"
 
     fill_in "Name", with: "New User"
     click_on "Create User"
   end
   test "ユーザー情報アップデート" do
-    visit user_url(@user)
+    visit users_path(@user)
     click_on "Edit", match: :first
 
     fill_in "Name", with: "Updated User"
     click_on "Update User"
   end
   test "ユーザー削除" do
-    visit user_url(@user)
+    visit users_path(@user)
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
