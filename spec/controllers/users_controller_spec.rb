@@ -25,7 +25,7 @@ RSpec.describe UsersController, type: :controller do
         context "無効なパラメータを送信" do
             it "正しいレスポンスが返ってくる" do
                 post :create, params: { user: invalid_attributes }
-                # expect(response).to have_http_status(:unprocessable_entity)
+                expect(response).to have_http_status(:unprocessable_entity)
             end
         end
     end
@@ -58,7 +58,7 @@ RSpec.describe UsersController, type: :controller do
             it "正しいレスポンスが返ってくる" do
                 user = User.create! valid_attributes
                 put :update, params: { id: user.to_param, user: invalid_attributes }
-                # expect(response).to be_successful
+                expect(response).to be_successful
             end
         end
     end
