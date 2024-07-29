@@ -38,15 +38,13 @@ RSpec.describe "Users", type: :system do
         end
     end
     
-    # describe 'ユーザー削除' do
-    #     it 'ユーザーを削除する' do
-    #         visit users_path
-    #         within('li', text: user.name) do
-    #             accept_confirm do
-    #             click_link 'Destroy', href: user_path(@user)
-    #             end
-    #         end
-    #         expect(page).not_to have_content('Test User')
-    #     end
-    # end
+    describe 'ユーザー削除' do
+        it 'ユーザーを削除する' do
+            visit users_path(user)
+            accept_confirm do
+                click_link 'Destroy', href: user_path(@user)
+            end
+            expect(page).not_to have_content('Test User')
+        end
+    end
 end
