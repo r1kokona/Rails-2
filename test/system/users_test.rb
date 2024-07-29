@@ -19,7 +19,6 @@ class UsersTest < ApplicationSystemTestCase
 
     fill_in "Name", with: "New User"
     click_on "Create User"
-    # リダイレクトする？
   end
   test "ユーザー情報アップデート" do
     visit user_url(@user)
