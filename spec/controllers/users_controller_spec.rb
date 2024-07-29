@@ -5,7 +5,7 @@ RSpec.describe UsersController, type: :controller do
         { name: "Valid Name" }
     }
     let(:invalid_attributes){
-        { name: "" }
+        { name: " " }
     }
 
     describe "createを送信する" do
@@ -58,7 +58,7 @@ RSpec.describe UsersController, type: :controller do
             it "正しいレスポンスが返ってくる" do
                 user = User.create! valid_attributes
                 put :update, params: { id: user.to_param, user: invalid_attributes }
-                expect(response).to be_successful
+                expect(response).to have_http_status(:unprocessable_entity)
             end
         end
     end
