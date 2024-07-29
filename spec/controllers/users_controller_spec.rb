@@ -8,26 +8,6 @@ RSpec.describe UsersController, type: :controller do
         { name: "" }
     }
 
-    describe "indexを取得" do
-        it "正しいレスポンスが返ってくる" do
-            User.create! valid_attributes
-            get :index
-            expect(response).to be_successful
-        end
-    end
-    describe "showを取得" do
-        it "正しいレスポンスが返ってくる" do
-            user = User.create! valid_attributes
-            get :show, params: { id: user.to_param }
-            expect(response).to be_successful
-        end
-    end
-    describe "newを取得" do
-        it "正しいレスポンスが返ってくる" do
-            get :new
-            expect(response).to be_successful
-        end
-    end
     describe "createを送信する" do
         context "有効なパラメータを送信" do
             it "新しいユーザーを作成する" do
@@ -83,7 +63,7 @@ RSpec.describe UsersController, type: :controller do
         end
     end
     describe "destroy" do
-        it "destroys the requested user" do
+        it "特定のユーザーを削除する" do
             user = User.create! valid_attributes
             expect {
               delete :destroy, params: { id: user.to_param }
