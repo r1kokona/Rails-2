@@ -1,6 +1,6 @@
 require "rails_helper"
 RSpec.describe "Users", type: :system do
-    let!(:user) { create(:user, name: "Test User") }
+    let!(:user) { create(:user, name: "Test User", id: 1) }
 
     it "h1" do
         visit root_path
@@ -40,9 +40,9 @@ RSpec.describe "Users", type: :system do
     
     describe 'ユーザー削除' do
         it 'ユーザーを削除する' do
-            visit users_path
+            visit user_path(user)
             accept_confirm do
-                click_link 'Destroy', href: user_path(@user)
+                click_link 'Destroy'
             end
             expect(page).not_to have_content('Test User')
         end
