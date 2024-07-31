@@ -10,7 +10,7 @@ RSpec.describe UsersController, type: :controller do
 
     describe "createを送信する" do
         context "有効なパラメータを送信" do
-            it "新しいユーザーを作成する" do
+            it "新しいユーザーを作成したことでUserが一人増える" do
                 expect{
                     post :create, params: { user: valid_attributes }
                 }.to change(User, :count).by(1)
