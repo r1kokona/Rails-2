@@ -1,6 +1,6 @@
 RSpec.describe User, type: :model do
     fixtures :users
-    let(:user) { users(:one)}
+    let(:user) { users(:sato)}
 
     describe "validations" do
         it "有効な属性か" do

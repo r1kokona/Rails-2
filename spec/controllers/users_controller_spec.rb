@@ -63,12 +63,13 @@ RSpec.describe UsersController, type: :controller do
         end
     end
     describe "destroy" do
-        it "特定のユーザーを削除する" do
-            user = User.create! valid_attributes
+        it 'ユーザーをdestroyでき一人へる' do
             expect {
-              delete :destroy, params: { id: user.to_param }
+              delete user_path(@user)
             }.to change(User, :count).by(-1)
-        end
+      
+            expect(response).to redirect_to(root_path)
+          end
         it "ユーザーリストにリダイレクトする" do
             user = User.create! valid_attributes
             delete :destroy, params: { id: user.to_param }
