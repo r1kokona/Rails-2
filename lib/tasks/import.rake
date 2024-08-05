@@ -30,7 +30,7 @@ namespace :import do
 
     puts "start to create personal informations"
     begin
-      PersonalInformation.create!(personal_information)
+      User.create!(personal_information)
       puts "completed!!"
     rescue ActiveModel::UnknownAttributeError => invalid
       puts "raised error: Unknown attribute - #{invalid.message}"
