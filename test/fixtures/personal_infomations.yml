@@ -4,36 +4,34 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {
+mitsui: 
   id: 1
-  name: "三井 碧透",
-  ruby: "ミツイ アオト",
-  sex: "男",
-  tel: "0555-39-4957",
-  mobile: "080-2422-3182",
-  mail: "aoto798@hdhq.zjxn.jt",
-  zip: "409-2524",
-  address1: "山梨県",
-  address2: "南巨摩郡身延町",
-  address3: "身延",
-  address4: "3-2",
-  address5: "",
+  name: "三井 碧透"
+  ruby: "ミツイ アオト"
+  sex: "男"
+  tel: "0555-39-4957"
+  mobile: "080-2422-3182"
+  mail: "aoto798@hdhq.zjxn.jt"
+  zip: "409-2524"
+  address1: "山梨県"
+  address2: "南巨摩郡身延町"
+  address3: "身延"
+  address4: "3-2"
+  address5: ""
   birthday: 1998/01/10
-}
 
-two: {  
-  id: 2,
-  name: "石山 光彦",
-  ruby: "イシヤマ ミツヒコ",
-  sex: "男",
-  tel: "059-67-1107",
-  mobile: "",
-  mail: "mitsuhikoishiyama@auplhztl.be",
-  zip: "510-0834",
-  address1: "三重県",
-  address2: "四日市市",
-  address3: "ときわ",
-  address4: "4-14",
-  address5: "ときわグリーン105",
+ishiyama: 
+  id: 2
+  name: "石山 光彦"
+  ruby: "イシヤマ ミツヒコ"
+  sex: "男"
+  tel: "059-67-1107"
+  mobile: ""
+  mail: "mitsuhikoishiyama@auplhztl.be"
+  zip: "510-0834"
+  address1: "三重県"
+  address2: "四日市市"
+  address3: "ときわ"
+  address4: "4-14"
+  address5: "ときわグリーン105"
   birthday: 1946/04/02
-  }
