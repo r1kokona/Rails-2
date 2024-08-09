@@ -5,6 +5,10 @@ class UserTest < ActiveSupport::TestCase
     @user = users(:mitsui)
   end
   test "有効である" do
+    unless @user.valid?
+      puts @user.errors.full_messages
+    end
+
     assert @user.valid?
   end
   test "存在する名前である" do

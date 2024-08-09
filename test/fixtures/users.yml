@@ -1,5 +1,5 @@
 mitsui:
-  id: 1
+  id: 123456
   name: "三井"
   ruby: "ミツイ"
   sex: "男"
@@ -15,7 +15,7 @@ mitsui:
   birthday: 1985/05/15
 
 suzuki:
-  id: 2
+  id: 234567
   name: "Suzuki"
   ruby: "スズキ"
   sex: "女"
