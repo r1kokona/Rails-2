@@ -2,7 +2,7 @@ require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
+    @user = users(:mitsui)
   end
   test "ユーザー作成でき一人増える" do
     assert_difference('User.count') do
@@ -14,6 +14,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "ユーザーをupdateできる" do
     patch user_url(@user), params: { user: { name: "iii"}}
     assert_redirected_to user_path(@user)
+    @user.reload
+    assert_equal "iii", @user.name
   end
   test "ユーザーをdestroyでき一人へる" do
     assert_difference('User.count', -1) do
