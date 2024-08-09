@@ -39,7 +39,7 @@
 
     <div class="field">
       <%= form.label :address1 %>
-      <%= form.select :address1, User.address1s.keys.map { |k| [k, User.address1s[k]] }, prompt: "選択してください" %>
+      <%= form.select :address1, User.address1s.keys, selected: params[:address1], prompt: "選択してください" %>
     </div>
 
     <div class="field">
