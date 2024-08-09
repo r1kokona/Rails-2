@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersFlowTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one) 
+    @user = users(:mitsui) 
   end
 
   test "indexページが見れる" do

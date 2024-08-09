@@ -2,7 +2,7 @@ require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   setup do
-    @user = User.new(name:"Example User")
+    @user = users(:mitsui)
   end
   test "有効である" do
     assert @user.valid?

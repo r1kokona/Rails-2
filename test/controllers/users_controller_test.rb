@@ -2,7 +2,7 @@ require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
+    @user = users(:mitsui)
   end
   test "ユーザー作成でき一人増える" do
     assert_difference('User.count') do
