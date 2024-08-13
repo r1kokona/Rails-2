@@ -15,7 +15,21 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_difference 'User.count', 1 do
-      post users_path, params: { user: { name: "Test User" } }
+      post users_path, params: { user: {
+        id: 10000,
+        name: "Test User",
+        ruby: "Test User",
+        sex: @user.sex,
+        tel: @user.tel,
+        mobile: @user.mobile,
+        mail: @user.mail,
+        zip: @user.zip,
+        address1: @user.address1,
+        address2: @user.address2,
+        address3: @user.address3,
+        address4: @user.address4,
+        birthday: @user.birthday
+      } }
     end
 
     follow_redirect!
