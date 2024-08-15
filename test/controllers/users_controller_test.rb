@@ -38,4 +38,35 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_path
   end
+  test "indexが取得できる" do
+    get users_path
+    assert_response :success
+    assert_select "h1", "Users"
+  end
+
+  test "newが取得できる" do
+    get new_user_path
+    assert_response :success
+  end
+
+  test "showが取得できる" do
+    get user_path(@user)
+    assert_response :success
+    assert_select "h1", @user.name
+  end
+
+  test "editが取得できる" do
+    get edit_user_path(@user)
+    assert_response :success
+    assert_select "h1", "Edit User"
+  end
+  test "newアクションで無効な値が送られた場合にエラーが出る" do
+    post users_path, params: { user: { name: "" } } # 名前が空欄で無効なユーザーを送信
+    assert_response :unprocessable_entity
+  end
+
+  test "editアクションで無効な値が送られた場合にエラーが出る" do
+    patch user_path(@user), params: { user: { name: "" } } # 名前が空欄で無効な更新
+    assert_response :unprocessable_entity
+  end
 end
