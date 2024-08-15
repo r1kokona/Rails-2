@@ -61,12 +61,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_select "h1", "Edit User"
   end
   test "newアクションで無効な値が送られた場合にエラーが出る" do
-    post users_path, params: { user: { name: "" } } # 名前が空欄で無効なユーザーを送信
+    post users_path, params: { user: { name: "" } }
     assert_response :unprocessable_entity
   end
 
   test "editアクションで無効な値が送られた場合にエラーが出る" do
-    patch user_path(@user), params: { user: { name: "" } } # 名前が空欄で無効な更新
+    patch user_path(@user), params: { user: { name: "" } }
     assert_response :unprocessable_entity
   end
 end
