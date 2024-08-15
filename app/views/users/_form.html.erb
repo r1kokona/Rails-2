@@ -65,7 +65,7 @@
 
     <div class="field">
       <%= form.label :address1 %>
-      <%= form.select :address1, User.address1s.keys, selected: params[:address1], prompt: "選択してください" %>
+      <%= form.select :address1, options_for_select(User.address1s), selected: params[:address1], prompt: "選択してください" %>
       <% user.errors.full_messages_for(:address1).each do |message| %>
         <div><%= message %></div>
       <% end %>
