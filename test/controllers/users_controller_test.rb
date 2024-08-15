@@ -26,7 +26,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_path(new_user)
   end
   test "ユーザーをupdateできる" do
-    patch user_url(@user), params: { user: { name: "iii"}}
+    assert_no_difference('User.count') do
+      patch user_url(@user), params: { user: { name: "iii"}}
+    end
     assert_redirected_to @user
     @user.reload
     assert_equal "iii", @user.name
