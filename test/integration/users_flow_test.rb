@@ -19,16 +19,16 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
         id: 10000,
         name: "Test User",
         ruby: "Test User",
-        sex: @user.sex,
-        tel: @user.tel,
-        mobile: @user.mobile,
-        mail: @user.mail,
-        zip: @user.zip,
-        address1: @user.address1,
-        address2: @user.address2,
-        address3: @user.address3,
-        address4: @user.address4,
-        birthday: @user.birthday
+        sex: "女",
+        tel: "0989999999",
+        mobile: "",
+        mail: "mi@ac.jp",
+        zip: "9052171",
+        address1: "沖縄県",
+        address2: "",
+        address3: "",
+        address4: "",
+        birthday: "2014/01/01"
       } }
     end
 
