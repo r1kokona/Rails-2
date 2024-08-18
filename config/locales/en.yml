@@ -36,3 +36,8 @@ en:
     sex:
       男: "male"
       女: "female"
+  date:
+    order:
+      - :year
+      - :month
+      - :day

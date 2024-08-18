@@ -3,6 +3,7 @@ require "test_helper"
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:mitsui)
+    I18n.locale = :ja
   end
   test "ユーザー作成でき一人増える" do
     assert_difference('User.count', +1) do
