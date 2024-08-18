@@ -1,7 +1,31 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+mitsui:
+  id: 12345
+  name: "三井"
+  ruby: "ミツイ"
+  sex: "男"
+  tel: "03-1234-5678"
+  mobile: "080-9876-5432"
+  mail: "taro_tanaka@example.com"
+  zip: "100-0001"
+  address1: "東京都"
+  address2: "千代田区"
+  address3: "千代田"
+  address4: "1-1-1"
+  address5: "千代田ビル201"
+  birthday: 1985/05/15
 
-one:
-  name: MyString
-
-two:
-  name: MyString
+suzuki:
+  id: 23456
+  name: "Suzuki"
+  ruby: "スズキ"
+  sex: "女"
+  tel: "03-2345-6789"
+  mobile: "090-2345-6789"
+  mail: "suzuki@example.com"
+  zip: "150-0001"
+  address1: "東京都"
+  address2: "Shibuya-ku"
+  address3: "Jingumae"
+  address4: "2-2-2"
+  address5: "Suzuki Building"
+  birthday: 1985-02-15

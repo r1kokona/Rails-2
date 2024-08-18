@@ -1,9 +1,103 @@
 <%= form_with model: user do |form| %>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% user.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+    <div class="field">
+      <%= form.label :id %>
+      <%= form.text_field :id %>
+      <% user.errors.full_messages_for(:id).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
 
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+      <% user.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :ruby %>
+      <%= form.text_field :ruby %>
+      <% user.errors.full_messages_for(:ruby).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :sex %>
+      <%= form.text_field :sex %>
+      <% user.errors.full_messages_for(:sex).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :tel %>
+      <%= form.text_field :tel %>
+      <% user.errors.full_messages_for(:tel).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :mobile %>
+      <%= form.text_field :mobile %>
+      <% user.errors.full_messages_for(:mobile).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :mail %>
+      <%= form.email_field :mail %>
+      <% user.errors.full_messages_for(:mail).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :zip %>
+      <%= form.text_field :zip %>
+      <% user.errors.full_messages_for(:zip).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address1 %>
+      <%= form.select :address1, options_for_select(User.address1s), selected: params[:address1], prompt: "選択してください" %>
+      <% user.errors.full_messages_for(:address1).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address2 %>
+      <%= form.text_field :address2 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address3 %>
+      <%= form.text_field :address3 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address4 %>
+      <%= form.text_field :address4 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address5 %>
+      <%= form.text_field :address5 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :birthday %>
+      <%= form.date_select :birthday %>
+      <% user.errors.full_messages_for(:birthday).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
     <%= form.submit %>
 <% end %>

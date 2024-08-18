@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersFlowTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one) 
+    @user = users(:mitsui) 
   end
 
   test "indexページが見れる" do
@@ -15,7 +15,21 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_difference 'User.count', 1 do
-      post users_path, params: { user: { name: "Test User" } }
+      post users_path, params: { user: {
+        id: 10000,
+        name: "Test User",
+        ruby: "Test User",
+        sex: "女",
+        tel: "0989999999",
+        mobile: "",
+        mail: "mi@ac.jp",
+        zip: "9052171",
+        address1: "沖縄県",
+        address2: "",
+        address3: "",
+        address4: "",
+        birthday: "2014/01/01"
+      } }
     end
 
     follow_redirect!
