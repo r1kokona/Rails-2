@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  hello_flash: Hello flash!
+  user:
+    sex:
+      男: "male"
+      女: "female"
