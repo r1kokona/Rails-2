@@ -15,4 +15,32 @@ class UserTest < ActiveSupport::TestCase
     @user.name = "   "
     assert_not_nil @user.valid?
   end
+  test "存在するルビである" do
+    @user.ruby = "   "
+    assert_not_nil @user.valid?
+  end
+  test "存在する性別である" do
+    @user.sex = "   "
+    assert_not_nil @user.valid?
+  end
+  test "存在する固定電話の番号である" do
+    @user.tel = "   "
+    assert_not_nil @user.valid?
+  end
+  test "存在する電話番号である" do
+    @user.mobile = "   "
+    assert_not_nil @user.valid?
+  end
+  test "存在する郵便番号である" do
+    @user.zip = "   "
+    assert_not_nil @user.valid?
+  end
+  test "存在する住所である" do
+    @user.address1 = "   "
+    assert_not_nil @user.valid?
+  end
+  test "存在する生年月日である" do
+    @user.birthday = "   "
+    assert_not_nil @user.valid?
+  end
 end
