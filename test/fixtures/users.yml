@@ -1,5 +1,6 @@
 mitsui:
   id: 12345
+  department_id: 1
   name: "三井"
   ruby: "ミツイ"
   sex: "男"
@@ -16,6 +17,7 @@ mitsui:
 
 suzuki:
   id: 23456
+  department_id: 1
   name: "Suzuki"
   ruby: "スズキ"
   sex: "女"
