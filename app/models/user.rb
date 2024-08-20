@@ -20,4 +20,6 @@ class User < ApplicationRecord
     validates :zip, presence: true, format: { with: /\A\d{3}-?\d{4}\z/, message: "must be a valid postal code" }  
     validates :address1, presence: true, inclusion: { in: address1s.keys }
     validates :birthday, presence: true
+
+    belongs_to :department
 end
