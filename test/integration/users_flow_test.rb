@@ -2,7 +2,8 @@ require 'test_helper'
 
 class UsersFlowTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:mitsui) 
+    @user = users(:mitsui)
+    department = Department.create!(department_id:1, department_name: "Test Department")
   end
 
   test "indexページが見れる" do
@@ -13,10 +14,10 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
   test "ユーザーがCreateできる" do
     get new_user_path
     assert_response :success
-
     assert_difference 'User.count', 1 do
       post users_path, params: { user: {
         id: 10000,
+        department_id: 1,
         name: "Test User",
         ruby: "Test User",
         sex: "女",
