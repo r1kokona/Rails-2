@@ -13,7 +13,7 @@ class DepartmentsController < ApplicationController
         if @department.save
             redirect_to @department
         else
-            render :new, staus: :unprocessable_entity
+            render :new, status: :unprocessable_entity
         end
     end
     def edit
@@ -22,7 +22,7 @@ class DepartmentsController < ApplicationController
     def update
         @department = Department.find(params[:id])
     
-        if department.update(department_params)
+        if @department.update(department_params)
             redirect_to @department
         else
             render :edit, status: :unprocessable_entity
@@ -35,6 +35,6 @@ class DepartmentsController < ApplicationController
     end
     private
     def department_params
-        params.require(:department).permit(department_id, department_name)
+        params.require(:department).permit(:department_id,:department_name)
     end
 end
