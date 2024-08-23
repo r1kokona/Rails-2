@@ -1,0 +1,6 @@
+jinjibu:
+  department_id: 1
+  department_name: "人事部"
+eigyobu:
+  department_id: 2
+  department_name: "営業部"

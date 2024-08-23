@@ -36,6 +36,7 @@ en:
     sex:
       男: "male"
       女: "female"
+      その他: "other"
   date:
     order:
       - :year

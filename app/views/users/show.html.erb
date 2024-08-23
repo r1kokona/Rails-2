@@ -1,6 +1,7 @@
 <h1><%= @user.name %></h1>
 
 <p>id:          <%= @user.id %></p>
+<p>department_name:<%= @user.department.department_name %></p>
 <p>name:        <%= @user.name %></p>
 <p>ruby:        <%= @user.ruby %></p>
 <p>sex:         <%= I18n.t("user.sex.#{@user.sex}") %></p>
