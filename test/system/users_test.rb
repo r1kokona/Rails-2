@@ -6,9 +6,9 @@ class UsersTest < ApplicationSystemTestCase
     Capybara.register_driver(:cuprite) do |app|
       Capybara::Cuprite::Driver.new(app, browser_options: { "no-sandbox": nil })
     end
-    @user = users(:one)
+    @user = users(:mitsui)
   end
-  test "visiting the index" do
+  test "indexが表示される" do
     visit users_path
   
     assert_selector "h1", text: "Users"
@@ -21,14 +21,14 @@ class UsersTest < ApplicationSystemTestCase
     click_on "Create User"
   end
   test "ユーザー情報アップデート" do
-    visit users_path(@user)
+    visit user_path(@user)
     click_on "Edit", match: :first
-
+  
     fill_in "Name", with: "Updated User"
     click_on "Update User"
   end
   test "ユーザー削除" do
-    visit users_path(@user)
+    visit user_path(@user)
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
