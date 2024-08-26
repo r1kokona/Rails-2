@@ -6,6 +6,14 @@
         <div><%= message %></div>
       <% end %>
     </div>
+    
+    <div class="field">
+      <%= form.label :department_id %>
+      <%= form.text_field :department_id %>
+      <% user.errors.full_messages_for(:department_id).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
 
     <div class="field">
       <%= form.label :name %>
