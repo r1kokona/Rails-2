@@ -106,6 +106,14 @@
         <div><%= message %></div>
       <% end %>
     </div>
+
+    <div class="field">
+      <%= form.label :skills, "Select Skills" %>
+      <%= form.collection_select :skill_ids, Skill.all, :id, :name, { include_blank: "skillなし" }, { multiple: true } %>
+      <% user.errors.full_messages_for(:skills).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
   
     <%= form.submit %>
 <% end %>
