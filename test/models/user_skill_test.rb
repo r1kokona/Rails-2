@@ -6,7 +6,10 @@ class UserSkillTest < ActiveSupport::TestCase
     @skill = skills(:typing)
     @user_skill = UserSkill.new(user: @user, skill: @skill)
   end
-
+  test "Skillモデルは複数のUsersSkillモデルと関連付けられている" do
+    skill = Skill.new
+    assert_respond_to skill, :users_skills
+  end
   test "有効なUserSkillオブジェクトを持つべきである" do
     assert @user_skill.valid?
   end
