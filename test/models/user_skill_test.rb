@@ -4,7 +4,7 @@ class UserSkillTest < ActiveSupport::TestCase
   def setup
     @user = users(:mitsui)
     @skill = skills(:typing)
-    @user_skill = UserSkill.new(user_id: @user.id, skill_id: @skill.id)
+    @user_skill = UserSkill.create( user_id: @user.id, skill_id: @skill.id)
   end
   test "有効なUserSkillオブジェクトを持つべきである" do
     unless @user_skill.valid?

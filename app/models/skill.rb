@@ -1,4 +1,4 @@
 class Skill < ApplicationRecord
     validates :name, presence: true
-    belongs_to :user_skill, optional: true
+    has_many :user_skill
 end

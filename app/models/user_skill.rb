@@ -1,6 +1,6 @@
 class UserSkill < ApplicationRecord
     validates :user, presence: true
     validates :skill, presence: true
-    has_many :user
-    has_many :skill
+    belongs_to :user, optional: true
+    belongs_to :skill, optional: true
 end
