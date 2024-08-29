@@ -21,6 +21,6 @@ class User < ApplicationRecord
     validates :address1, presence: true, inclusion: { in: address1s.keys }
     validates :birthday, presence: true
 
-    has_many :department
+    belongs_to :department, optional: true
     has_many :user_skill
 end
