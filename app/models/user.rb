@@ -23,4 +23,5 @@ class User < ApplicationRecord
 
     belongs_to :department, optional: true
     has_many :user_skill
+    has_many :skill, through: :user_skill
 end
