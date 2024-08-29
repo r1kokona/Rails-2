@@ -20,9 +20,9 @@ class SkillsController < ApplicationController
       @skill = Skill.find(params[:id])
     end
     def update
-      @skill = @Skill.find(params[:id])
+      @skill = Skill.find(params[:id])
     
-      if skill.update(skill_params)
+      if @skill.update(skill_params)
         redirect_to @skill
       else
         render :edit, status: :unprocessable_entity
