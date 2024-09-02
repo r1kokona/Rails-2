@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_26_022717) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_02_020217) do
   create_table "departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "department_id"
     t.string "department_name"
@@ -52,6 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_26_022717) do
     t.bigint "department_id"
   end
 
-  add_foreign_key "user_skills", "skills"
-  add_foreign_key "user_skills", "users"
+  add_foreign_key "user_skills", "skills", on_delete: :cascade
+  add_foreign_key "user_skills", "users", on_delete: :cascade
 end
