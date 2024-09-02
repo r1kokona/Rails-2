@@ -3,7 +3,6 @@ require "test_helper"
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:mitsui)
-    I18n.locale = :ja
     department = Department.create!(department_id:1, department_name: "Test Department")
   end
   test "ユーザー作成でき一人増える" do
