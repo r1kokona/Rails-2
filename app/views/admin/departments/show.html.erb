@@ -1,0 +1,12 @@
+<h1><%= @department.department_name %></h1>
+
+<p>id:          <%= @department.id %></p>
+<p>name:        <%= @department.department_name %></p>
+
+<ul>
+    <li><%= link_to "Edit", edit_admin_department_path(@department) %></li>
+    <li><%= link_to "Destroy", admin_department_path(@department), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                    } %></li>
+</ul>

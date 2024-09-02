@@ -1,0 +1,11 @@
+<%= form_with model: department, url: department.persisted? ? admin_department_path(department) : admin_departments_path do |form| %>
+    <div class="field">
+      <%= form.label :department_name %>
+      <%= form.text_field :department_name %>
+      <% department.errors.full_messages_for(:department_name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <%= form.submit %>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>Departments</h1>
+<ul>
+    <% @departments.each do |department|%>
+        <li><%= link_to department.department_name, admin_department_path(department) %></li>
+    <% end %>
+</ul>
+<%= link_to "New Department", new_admin_department_path %>
