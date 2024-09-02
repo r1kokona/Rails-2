@@ -1,0 +1,32 @@
+<h1><%= @user.name %></h1>
+
+<p>id:          <%= @user.id %></p>
+<p>department_name: <%= @user.department&.department_name || '無所属です' %></p>
+<p>name:        <%= @user.name %></p>
+<p>ruby:        <%= @user.ruby %></p>
+<p>sex:         <%= I18n.t("user.sex.#{@user.sex}") %></p>
+<p>tel:         <%= @user.tel %></p>
+<p>mobile:      <%= @user.mobile %></p>
+<p>mail:        <%= @user.mail %></p>
+<p>zip:         <%= @user.zip %></p>
+<p>address1:    <%= @user.address1 %></p>
+<p>address2:    <%= @user.address2 %></p>
+<p>address3:    <%= @user.address3 %></p>
+<p>address4:    <%= @user.address4 %></p>
+<p>address5:    <%= @user.address5 %></p>
+<p>birthday:    <%= @user.birthday %></p>
+<p>Skills:</p>
+<ul>
+  <% @user.skill.each do |skill| %>
+    <li><%= skill.name %></li>
+  <% end %>
+</ul>
+
+
+<ul>
+    <li><%= link_to "Edit", edit_admin_user_path(@user) %></li>
+    <li><%= link_to "Destroy", admin_user_path(@user), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                    } %></li>
+</ul>
