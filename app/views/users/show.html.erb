@@ -15,6 +15,13 @@
 <p>address4:    <%= @user.address4 %></p>
 <p>address5:    <%= @user.address5 %></p>
 <p>birthday:    <%= @user.birthday %></p>
+<p>Skills:</p>
+<ul>
+  <% @user.skill.each do |skill| %>
+    <li><%= skill.name %></li>
+  <% end %>
+</ul>
+
 
 <ul>
     <li><%= link_to "Edit", edit_user_path(@user) %></li>

@@ -22,5 +22,6 @@ class User < ApplicationRecord
     validates :birthday, presence: true
 
     belongs_to :department, optional: true
-    belongs_to :user_skill, optional: true
+    has_many :user_skill
+    has_many :skill, through: :user_skill
 end

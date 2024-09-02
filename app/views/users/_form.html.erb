@@ -73,7 +73,7 @@
 
     <div class="field">
       <%= form.label :address1 %>
-      <%= form.select :address1, options_for_select(User.address1s), selected: params[:address1], prompt: "選択してください" %>
+      <%= form.select :address1, options_for_select(User.address1s.keys.map { |key| [key.humanize, key] }, selected: @user.address1), prompt: "選択してください" %>
       <% user.errors.full_messages_for(:address1).each do |message| %>
         <div><%= message %></div>
       <% end %>
@@ -103,6 +103,19 @@
       <%= form.label :birthday %>
       <%= form.date_select :birthday %>
       <% user.errors.full_messages_for(:birthday).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :skills, "Select Skills" %>
+      <%= form.collection_check_boxes :skill_ids, Skill.all, :id, :name do |cb| %>
+        <div>
+          <%= cb.check_box %>
+          <%= cb.label %>
+        </div>
+      <% end %>
+      <% user.errors.full_messages_for(:skills).each do |message| %>
         <div><%= message %></div>
       <% end %>
     </div>
