@@ -9,26 +9,26 @@ class UsersTest < ApplicationSystemTestCase
     @department = departments(:jinjibu)
   end
   test "Departmentが表示される" do
-    visit departments_path
+    visit admin_departments_path
   
     assert_selector "h1", text: "Departments"
   end
   test "部署作成" do
-    visit departments_path
+    visit admin_departments_path
     click_on "New Department"
 
     fill_in "Department name", with: "New Department"
     click_on "Create Department"
   end
   test "部署情報アップデート" do
-    visit department_path(@department)
+    visit admin_department_path(@department)
     click_on "Edit", match: :first
   
     fill_in "Department name", with: "Updated Department"
     click_on "Update Department"
   end
   test "部署情報削除" do
-    visit department_path(@department)
+    visit admin_department_path(@department)
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
