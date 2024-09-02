@@ -1,66 +1,66 @@
 require "test_helper"
 
-class SkillsControllerTest < ActionDispatch::IntegrationTest
+class Admin::SkillsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @skill = skills(:typing)
   end
 
   test "部署が生成できデータが１つ増える" do
     assert_difference('Skill.count', +1) do
-      post skills_path, params: { skill: {
+      post admin_skills_path, params: { skill: {
         id: 3,
         name: "タイピング"
       }}
     end
     skill = Skill.last
-    assert_redirected_to skill_path(skill)
+    assert_redirected_to admin_skill_path(skill)
   end
 
   test "部署をupdateでき、データに変更がない" do
     assert_no_difference('Skill.count') do
-      patch skill_url(@skill), params: { skill: { name: "プログラミング" } }
+      patch admin_skill_url(@skill), params: { skill: { name: "プログラミング" } }
     end
-    assert_redirected_to skill_url(@skill)
+    assert_redirected_to admin_skill_url(@skill)
     @skill.reload
     assert_equal "プログラミング", @skill.name
   end
 
   test "ユーザーをdestroyでき一人へる" do
     assert_difference('Skill.count', -1) do
-      delete skill_path(@skill)
+      delete admin_skill_path(@skill)
     end
 
     assert_redirected_to root_path
   end
   test "indexが取得できる" do
-    get skills_path
+    get admin_skills_path
     assert_response :success
     assert_select "h1", "Skills"
   end
 
   test "newが取得できる" do
-    get new_skill_path
+    get new_admin_skill_path
     assert_response :success
   end
 
   test "showが取得できる" do
-    get skill_path(@skill)
+    get admin_skill_path(@skill)
     assert_response :success
     assert_select "h1", @skill.name
   end
 
   test "editが取得できる" do
-    get edit_skill_path(@skill)
+    get edit_admin_skill_path(@skill)
     assert_response :success
     assert_select "h1", "Edit Skill"
   end
   test "newアクションで無効な値が送られた場合にエラーが出る" do
-    post skills_path, params: { skill: { name: " " } }
+    post admin_skills_path, params: { skill: { name: " " } }
     assert_response :unprocessable_entity
   end
 
   test "editアクションで無効な値が送られた場合にエラーが出る" do
-    patch skill_path(@skill), params: { skill: { name: "" } }
+    patch admin_skill_path(@skill), params: { skill: { name: "" } }
     assert_response :unprocessable_entity
   end
 end

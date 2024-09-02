@@ -1,13 +1,13 @@
 require "test_helper"
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
+class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:mitsui)
     department = Department.create!(department_id:1, department_name: "Test Department")
   end
   test "ユーザー作成でき一人増える" do
     assert_difference('User.count', +1) do
-      post users_url, params: { user: {
+      post admin_users_url, params: { user: {
         id: 100000,
         department_id: 1,
         name: "Test User",
@@ -25,52 +25,52 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       } }
     end
     new_user = User.last
-    assert_redirected_to user_path(new_user)
+    assert_redirected_to admin_user_path(new_user)
   end
   test "ユーザーをupdateできる" do
     assert_no_difference('User.count') do
-      patch user_url(@user), params: { user: { name: "iii"}}
+      patch admin_user_url(@user), params: { user: { name: "iii"}}
     end
-    assert_redirected_to @user
+    assert_redirected_to admin_user_path(@user)
     @user.reload
     assert_equal "iii", @user.name
   end
   test "ユーザーをdestroyでき一人へる" do
     assert_difference('User.count', -1) do
-      delete user_path(@user)
+      delete admin_user_path(@user)
     end
 
     assert_redirected_to root_path
   end
   test "indexが取得できる" do
-    get users_path
+    get admin_users_path
     assert_response :success
     assert_select "h1", "Users"
   end
 
   test "newが取得できる" do
-    get new_user_path
+    get new_admin_user_path
     assert_response :success
   end
 
   test "showが取得できる" do
-    get user_path(@user)
+    get admin_user_path(@user)
     assert_response :success
     assert_select "h1", @user.name
   end
 
   test "editが取得できる" do
-    get edit_user_path(@user)
+    get edit_admin_user_path(@user)
     assert_response :success
     assert_select "h1", "Edit User"
   end
   test "newアクションで無効な値が送られた場合にエラーが出る" do
-    post users_path, params: { user: { name: "" } }
+    post admin_users_path, params: { user: { name: "" } }
     assert_response :unprocessable_entity
   end
 
   test "editアクションで無効な値が送られた場合にエラーが出る" do
-    patch user_path(@user), params: { user: { name: "" } }
+    patch admin_user_path(@user), params: { user: { name: "" } }
     assert_response :unprocessable_entity
   end
 end
