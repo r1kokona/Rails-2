@@ -7,15 +7,15 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
   end
 
   test "indexページが見れる" do
-    get users_path
+    get admin_users_path
     assert_select "h1", "Users"
   end
 
   test "ユーザーがCreateできる" do
-    get new_user_path
+    get new_admin_user_path
     assert_response :success
     assert_difference 'User.count', 1 do
-      post users_path, params: { user: {
+      post admin_users_path, params: { user: {
         id: 10000,
         department_id: 1,
         name: "Test User",
@@ -39,10 +39,10 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
   end
 
   test "ユーザーがupdateできる" do
-    get edit_user_path(@user)
+    get edit_admin_user_path(@user)
     assert_response :success
 
-    patch user_path(@user), params: { user: { name: "Updated Name" } }
+    patch admin_user_path(@user), params: { user: { name: "Updated Name" } }
     follow_redirect!
     assert_response :success
     assert_select "h1", "Updated Name"
@@ -50,7 +50,7 @@ class UsersFlowTest < ActionDispatch::IntegrationTest
 
   test "ユーザーがdestroyできる" do
     assert_difference 'User.count', -1 do
-      delete user_path(@user)
+      delete admin_user_path(@user)
     end
 
     follow_redirect!
