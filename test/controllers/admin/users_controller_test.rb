@@ -40,7 +40,7 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
       delete admin_user_path(@user)
     end
 
-    assert_redirected_to root_path
+    assert_redirected_to admin_users_path
   end
   test "indexが取得できる" do
     get admin_users_path

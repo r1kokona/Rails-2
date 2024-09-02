@@ -30,7 +30,7 @@ class Admin::DepartmentsControllerTest < ActionDispatch::IntegrationTest
       delete admin_department_path(@department)
     end
 
-    assert_redirected_to root_path
+    assert_redirected_to admin_departments_path
   end
   test "indexが取得できる" do
     get admin_departments_path

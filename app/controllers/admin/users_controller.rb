@@ -33,7 +33,7 @@ class Admin::UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.destroy
 
-        redirect_to root_path, status: :see_other
+        redirect_to admin_users_path, status: :see_other
     end
 
     private

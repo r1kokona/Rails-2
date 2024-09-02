@@ -31,7 +31,7 @@ class Admin::SkillsController < ApplicationController
     def destroy
         @skill = Skill.find(params[:id])
         @skill.destroy
-        redirect_to root_path, status: :see_other
+        redirect_to admin_skills_path, status: :see_other
     end
     private
     def skill_params

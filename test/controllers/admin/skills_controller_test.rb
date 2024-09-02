@@ -30,7 +30,7 @@ class Admin::SkillsControllerTest < ActionDispatch::IntegrationTest
       delete admin_skill_path(@skill)
     end
 
-    assert_redirected_to root_path
+    assert_redirected_to admin_skills_path
   end
   test "indexが取得できる" do
     get admin_skills_path

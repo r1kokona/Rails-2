@@ -31,7 +31,7 @@ class Admin::DepartmentsController < ApplicationController
     def destroy
         @department = Department.find(params[:id])
         @department.destroy
-        redirect_to root_path, status: :see_other
+        redirect_to admin_departments_path, status: :see_other
     end
     private
     def department_params
