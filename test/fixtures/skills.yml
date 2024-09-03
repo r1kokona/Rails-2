@@ -1,3 +1,6 @@
 typing:
   id: 1
   name: "タイピングできる"
+programing:
+  id: 2
+  name: "プログラミングできる"
