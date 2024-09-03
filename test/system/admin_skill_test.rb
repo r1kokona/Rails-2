@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-class SkillsTest < ApplicationSystemTestCase
+class AdminSkillsTest < ApplicationSystemTestCase
     setup do
         Capybara.javascript_driver = :cuprite
         Capybara.register_driver(:cuprite) do |app|
