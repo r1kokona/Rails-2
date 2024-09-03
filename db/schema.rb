@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema[7.0].define(version: 2024_09_02_020217) do
   create_table "departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "department_id"
     t.string "department_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_02_020217) do
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "department_id"
     t.string "name"
     t.string "ruby"
     t.string "sex"
@@ -49,9 +49,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_02_020217) do
     t.date "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "department_id"
+    t.index ["department_id"], name: "index_users_on_department_id"
   end
 
   add_foreign_key "user_skills", "skills", on_delete: :cascade
   add_foreign_key "user_skills", "users", on_delete: :cascade
+  add_foreign_key "users", "departments"
 end
