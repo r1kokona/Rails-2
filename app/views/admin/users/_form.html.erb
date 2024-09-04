@@ -33,7 +33,7 @@
 
     <div class="field">
       <%= form.label :sex %>
-      <%= form.text_field :sex %>
+      <%= form.select :sex, options_for_select(User.sexes.keys.map { |key| [key.humanize, key] }, selected: @user.sex), prompt: "選択してください" %>
       <% user.errors.full_messages_for(:sex).each do |message| %>
         <div><%= message %></div>
       <% end %>
