@@ -11,7 +11,7 @@ class User < ApplicationRecord
     沖縄県:"47"
     }
     enum sex: {
-        男性:"1", 女性:"2"
+        男性:"1", 女性:"2", その他:"3"
     }
     validates :id, presence: true, uniqueness: true
     validates :name, presence: true
