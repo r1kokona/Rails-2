@@ -14,7 +14,7 @@ namespace :import do
         id: row['no'],
         name: row['namae'],
         ruby: row['rubi'],
-        sex: row['seibetu'],
+        sex: row['seibetu'] == '男' ? "1" : row['seibetu'] == '女' ? "2" : nil,
         tel: row['denwa'],
         mobile: row['keitai'],
         mail: row['mairu'],

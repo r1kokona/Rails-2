@@ -1,4 +1,4 @@
-class DepartmentsController < ApplicationController
+class Admin::DepartmentsController < ApplicationController
     def index
         @departments = Department.all
     end
@@ -11,7 +11,7 @@ class DepartmentsController < ApplicationController
     def create
         @department = Department.new(department_params)
         if @department.save
-            redirect_to @department
+            redirect_to admin_department_path(@department)
         else
             render :new, status: :unprocessable_entity
         end
@@ -23,7 +23,7 @@ class DepartmentsController < ApplicationController
         @department = Department.find(params[:id])
     
         if @department.update(department_params)
-            redirect_to @department
+            redirect_to admin_department_path(@department)
         else
             render :edit, status: :unprocessable_entity
         end
@@ -31,7 +31,7 @@ class DepartmentsController < ApplicationController
     def destroy
         @department = Department.find(params[:id])
         @department.destroy
-        redirect_to root_path, status: :see_other
+        redirect_to admin_departments_path, status: :see_other
     end
     private
     def department_params

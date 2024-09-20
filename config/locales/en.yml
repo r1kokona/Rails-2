@@ -34,8 +34,8 @@ en:
   hello_flash: Hello flash!
   user:
     sex:
-      男: "male"
-      女: "female"
+      男性: "male"
+      女性: "female"
       その他: "other"
   date:
     order:

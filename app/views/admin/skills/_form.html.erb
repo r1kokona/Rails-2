@@ -1,4 +1,4 @@
-<%= form_with model: skill do |form| %>
+<%= form_with model: skill, url: skill.persisted? ? admin_skill_path(skill) : admin_skills_path do |form| %>
     <div class="field">
       <%= form.label :name %>
       <%= form.text_field :name %>

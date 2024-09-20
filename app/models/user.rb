@@ -9,11 +9,14 @@ class User < ApplicationRecord
     徳島県:"36",香川県:"37",愛媛県:"38",高知県:"39",
     福岡県:"40",佐賀県:"41",長崎県:"42",熊本県:"43",大分県:"44",宮崎県:"45",鹿児島県:"46",
     沖縄県:"47"
-    } 
+    }
+    enum sex: {
+        男性:"1", 女性:"2", その他:"3"
+    }
     validates :id, presence: true, uniqueness: true
     validates :name, presence: true
     validates :ruby, presence: true
-    validates :sex, presence: true, inclusion: { in: %w(男 女), message: "%{value} is not a valid sex" }
+    validates :sex, presence: true, inclusion: { in: sexes.keys, message: "%{value} is not a valid sex" }
     validates :tel, allow_blank: true, format: { with: /\A0[-\d]{9,12}\z/, message: "must be a valid phone number" }
     validates :mobile, allow_blank: true, format: { with: /\A0[5789]0[-]?\d{4}[-]?\d{4}\z/, message: "must be a valid mobile number" }
     validates :mail, presence: true, uniqueness: true, format: { with: /\A[\w+-.@?]+/i, message: "must be a valid email address" }
